@@ -1,41 +1,29 @@
 export default async function handler() {
   try {
-    const apiKey = process.env.METALS_API_KEY;
-
-    if (!apiKey) {
-      return Response.json(
-        {
-          status: "error",
-          message: "METALS_API_KEY is missing",
-        },
-        { status: 500 }
-      );
-    }
-
-    const url =
-      `https://api.metals.dev/v1/latest` +
-      `?api_key=${apiKey}` +
-      `&currency=INR` +
-      `&unit=g`;
-
-    const response = await fetch(url);
-
-    const data = await response.json();
-
-    console.log("Metals.Dev response:", data);
+    const response = await fetch(
+      "https://api.goldprice.dev/v1/carat?currency=INR"
+    );
 
     if (!response.ok) {
       return Response.json(
         {
           status: "error",
-          message: "Metals.Dev request failed",
-          details: data,
+          message: "Failed to fetch gold rate",
         },
         { status: response.status }
       );
     }
 
-    return Response.json(data);
+    const data = await response.json();
+
+    return Response.json({
+      status: "success",
+      currency: "INR",
+      metals: {
+        gold24k: Number(data.price_gram_24k),
+        gold22k: Number(data.price_gram_22k),
+      },
+    });
   } catch (error) {
     console.error("Gold API error:", error);
 
