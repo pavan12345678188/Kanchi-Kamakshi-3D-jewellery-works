@@ -1,0 +1,6 @@
+{
+  "name": "KanchiKamakshi 3D Jewellery Works",
+  "description": "KanchiKamakshi 3D Jewellery Works showcases jewellery design, 3D jewellery technology, printing, moulding and custom jewellery work.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
