@@ -1371,3 +1371,27 @@ main { width: 100%; }
     display: none;
   }
 }
+
+
+
+.home-gold-rate {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+.home-gold-rate > div {
+  width: min(360px, calc(100vw - 32px));
+}
+
+@media (max-width: 768px) {
+  .home-gold-rate {
+    margin-top: 18px;
+    margin-bottom: 16px;
+  }
+
+  .home-gold-rate > div {
+    width: calc(100vw - 32px);
+  }
+}

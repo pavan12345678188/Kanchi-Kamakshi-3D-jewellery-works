@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { GoldRate } from "../components/common/GoldRate";
 import {
   ArrowDown,
   ArrowRight,
@@ -199,7 +200,6 @@ export const HomePage: React.FC = () => {
           className="home-hero-orbit home-hero-orbit-two"
           aria-hidden="true"
         />
-
         <div className="home-hero-inner">
 
           {/* =================================================
@@ -270,7 +270,7 @@ export const HomePage: React.FC = () => {
               index={index}
               direction={direction}
             />
-
+         
             <button
               type="button"
               aria-label="Next jewellery"
@@ -287,7 +287,14 @@ export const HomePage: React.FC = () => {
             </button>
 
           </div>
+         {/* ===================================================
+              LIVE GOLD RATE
+              =================================================== */}
 
+          <div className="home-gold-rate">
+            <GoldRate />
+          </div>
+          
         </div>
 
         {/* ===================================================
@@ -362,7 +369,6 @@ export const HomePage: React.FC = () => {
           onClick={handleDiscoverMore}
           aria-label="Scroll to discover more"
         >
-
           <span>
             DISCOVER MORE
           </span>
@@ -373,7 +379,6 @@ export const HomePage: React.FC = () => {
           />
 
         </button>
-
       </section>
 
       {/* =====================================================
