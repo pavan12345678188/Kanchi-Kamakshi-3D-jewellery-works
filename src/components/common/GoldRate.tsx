@@ -29,7 +29,8 @@ export const GoldRate: React.FC = () => {
       if (
         data.status !== "success" ||
         !data.metals ||
-        !data.metals.gold24k
+        typeof data.metals.gold24k !== "number" ||
+        typeof data.metals.gold22k !== "number"
       ) {
         throw new Error("Gold rates unavailable");
       }
